@@ -302,10 +302,11 @@
         }
 
         .section-title {
-            font-size: 48px;
+            font-size: clamp(32px, 8vw, 48px);
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             color: var(--white);
+            line-height: 1.2;
         }
 
         .section-title span {
@@ -1141,7 +1142,7 @@
         <div class="booking-grid">
             <div class="booking-content gs-reveal">
                 <span class="section-tag">SECURE YOUR SLOT</span>
-                <h2 class="section-title" style="text-align: left;">BOOK YOUR<br><span style="color: var(--gold);">TRANSFORMATION.</span></h2>
+                <h2 class="section-title" style="text-align: left; word-break: break-word; hyphens: auto;">BOOK YOUR<br><span style="color: var(--gold);">TRANSFORMATION.</span></h2>
                 <p class="section-desc">Our studio operates on a strictly limited volume model to ensure every vehicle receives obsessive attention. Reserve your slot today.</p>
 
                 <ul class="booking-features">
