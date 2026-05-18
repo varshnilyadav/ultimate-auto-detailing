@@ -547,10 +547,12 @@
         }
 
         /* Footer */
-        .footer {
-            background: #050505;
-            padding: 5rem 5% 2rem;
-            border-top: 1px solid var(--glass-border);
+        .footer { 
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('images/gallery/IMG_3572.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 5rem 5% 2rem; 
+            border-top: 1px solid var(--glass-border); 
         }
 
         .footer-grid {
@@ -875,6 +877,48 @@
         @media (max-width: 768px) { .testi-slide { min-width: 300px; max-width: 300px; } }
         @media (max-width: 768px) { .founder-section { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center; } .founder-section > div:last-child > div:last-child { justify-content: center; } }
         @media (max-width: 480px) { .testi-slide { min-width: 260px; max-width: 260px; } .hero-stats { flex-direction: column !important; gap: 1rem !important; } .hero-stats .stat-divider { width: 60px !important; height: 1px !important; } .hero-ctas .btn { font-size: 14px; padding: 0.8rem 1.5rem; } }
+
+        /* Custom Cursor */
+        @media (pointer: fine) {
+            * {
+                cursor: none !important;
+            }
+
+            .cursor-dot {
+                position: fixed;
+                top: 0; left: 0;
+                width: 8px; height: 8px;
+                background: var(--gold);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 10000;
+                transition: transform 0.2s, opacity 0.2s;
+            }
+
+            .cursor-ring {
+                position: fixed;
+                top: 0; left: 0;
+                width: 40px; height: 40px;
+                border: 1px solid rgba(212, 175, 55, 0.5); /* translucent gold */
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
+            }
+
+            /* Hover States */
+            .cursor-dot.hovered {
+                opacity: 0;
+                transform: scale(0.1) !important;
+            }
+
+            .cursor-ring.hovered {
+                width: 60px;
+                height: 60px;
+                background: rgba(212, 175, 55, 0.1);
+                border-color: rgba(212, 175, 55, 0.8);
+            }
+        }
     </style>
 </head>
 
@@ -1339,6 +1383,52 @@
             } else {
                 preloader.style.display = 'none';
                 initScrollAnimations();
+            }
+
+            // Custom Cursor (if on desktop)
+            if (window.matchMedia("(pointer: fine)").matches) {
+                const cursorDot = document.createElement('div');
+                cursorDot.classList.add('cursor-dot');
+                const cursorRing = document.createElement('div');
+                cursorRing.classList.add('cursor-ring');
+                document.body.appendChild(cursorDot);
+                document.body.appendChild(cursorRing);
+
+                let mouseX = 0, mouseY = 0;
+                let ringX = 0, ringY = 0;
+
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    
+                    // Dot follows instantly
+                    if(typeof gsap !== 'undefined') {
+                        gsap.set(cursorDot, { x: mouseX, y: mouseY, xPercent: -50, yPercent: -50 });
+                    } else {
+                        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+                    }
+                });
+
+                if(typeof gsap !== 'undefined') {
+                    gsap.ticker.add(() => {
+                        ringX += (mouseX - ringX) * 0.15;
+                        ringY += (mouseY - ringY) * 0.15;
+                        gsap.set(cursorRing, { x: ringX, y: ringY, xPercent: -50, yPercent: -50 });
+                    });
+                }
+
+                // Add hover effect for interactive elements
+                const interactives = document.querySelectorAll('a, button, .btn, .service-card, input, textarea, select, .brand-img-logo, .gallery-item, .info-card');
+                interactives.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursorDot.classList.add('hovered');
+                        cursorRing.classList.add('hovered');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursorDot.classList.remove('hovered');
+                        cursorRing.classList.remove('hovered');
+                    });
+                });
             }
 
             // Mobile Nav
