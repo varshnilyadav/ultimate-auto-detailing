@@ -819,7 +819,13 @@
         }
     
         /* Booking Section */
-        .booking-section { padding: 5rem 0; position: relative; clip-path: inset(0 0 0 0); border-top: 1px solid var(--glass-border); }
+        .booking-section { 
+            padding: 5rem 0; 
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('images/gallery/IMG_3572.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            border-top: 1px solid var(--glass-border); 
+        }
         .booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .booking-content { padding-right: 2rem; }
         .section-tag { display: inline-block; padding: 0.5rem 1rem; border: 1px solid var(--gold); color: var(--gold); border-radius: 30px; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 1rem; text-transform: uppercase; }
@@ -1153,9 +1159,7 @@
 
     <!-- Booking Section -->
     <section id="booking" class="booking-section">
-        <div class="parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=2000');"></div>
-        <div class="parallax-overlay" style="background: rgba(0, 0, 0, 0.75);"></div>
-        <div class="booking-grid" style="position: relative; z-index: 1;">
+        <div class="booking-grid">
             <div class="booking-content gs-reveal">
                 <span class="section-tag">SECURE YOUR SLOT</span>
                 <h2 class="section-title" style="text-align: left; word-break: break-word; hyphens: auto;">BOOK YOUR<br><span style="color: var(--gold);">TRANSFORMATION.</span></h2>
