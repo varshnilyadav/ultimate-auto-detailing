@@ -824,6 +824,22 @@
         @media (max-width: 768px) { .booking-grid { grid-template-columns: 1fr; gap: 2rem; padding: 0 1rem; } .booking-content { padding-right: 0; } .booking-form-wrapper { padding: 1.5rem; } .form-row { grid-template-columns: 1fr; gap: 1rem; } .form-group-full { grid-column: span 1; } .booking-section { padding: 3rem 0; } }
 
 
+        /* Brands Marquee */
+        .brands-section { padding: 3rem 0; background: var(--black); border-bottom: 1px solid var(--glass-border); overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+        .brands-label { margin-bottom: 2rem; text-align: center; }
+        .brands-marquee-wrapper { width: 100%; overflow: hidden; white-space: nowrap; position: relative; }
+        .brands-marquee-wrapper::before, .brands-marquee-wrapper::after { content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2; pointer-events: none; }
+        .brands-marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--black) 0%, transparent 100%); }
+        .brands-marquee-wrapper::after { right: 0; background: linear-gradient(to left, var(--black) 0%, transparent 100%); }
+        .brands-marquee { display: inline-flex; align-items: center; gap: 4rem; animation: scrollMarquee 35s linear infinite; width: max-content; padding: 0 2rem; }
+        .brands-marquee:hover { animation-play-state: paused; }
+        .brand-item { display: flex; align-items: center; justify-content: center; opacity: 0.5; transition: opacity 0.3s; }
+        .brand-item:hover { opacity: 1; }
+        .brand-img-logo { height: 40px; width: auto; object-fit: contain; filter: grayscale(100%) brightness(200%); transition: filter 0.3s; }
+        .brand-item:hover .brand-img-logo { filter: grayscale(0%) brightness(100%); }
+        @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @media (max-width: 768px) { .brands-marquee-wrapper::before, .brands-marquee-wrapper::after { width: 50px; } .brand-img-logo { height: 30px; } }
+
         /* Testimonial Slider */
         .testi-slider-wrap { position: relative; overflow: hidden; padding: 0 5%; }
         .testi-slider { display: flex; gap: 2rem; animation: scrollTesti 30s linear infinite; width: max-content; }
@@ -906,6 +922,37 @@
         </style>
     </section>
 
+    <!-- ===================== BRANDS MARQUEE ===================== -->
+    <section class="brands-section gs-reveal">
+        <div class="brands-label">
+            <span class="section-tag">BRANDS WE SERVICE</span>
+        </div>
+        <div class="brands-marquee-wrapper">
+            <div class="brands-marquee" id="brands-marquee">
+                <!-- Original set -->
+                <div class="brand-item"><img src="https://logo.clearbit.com/hyundai.com" alt="HYUNDAI" class="brand-img-logo" onerror="this.src=''; this.alt='HYUNDAI'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/bmw.com" alt="BMW" class="brand-img-logo" onerror="this.src=''; this.alt='BMW'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/mercedes-benz.com" alt="MERCEDES" class="brand-img-logo" onerror="this.src=''; this.alt='MERCEDES'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/audi.com" alt="AUDI" class="brand-img-logo" onerror="this.src=''; this.alt='AUDI'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/toyota.com" alt="TOYOTA" class="brand-img-logo" onerror="this.src=''; this.alt='TOYOTA'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/volkswagen.com" alt="VOLKSWAGEN" class="brand-img-logo" onerror="this.src=''; this.alt='VOLKSWAGEN'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/honda.com" alt="HONDA" class="brand-img-logo" onerror="this.src=''; this.alt='HONDA'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/kia.com" alt="KIA" class="brand-img-logo" onerror="this.src=''; this.alt='KIA'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/tatamotors.com" alt="TATA" class="brand-img-logo" onerror="this.src=''; this.alt='TATA'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/mahindra.com" alt="MAHINDRA" class="brand-img-logo" onerror="this.src=''; this.alt='MAHINDRA'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/mgmotor.co.in" alt="MG" class="brand-img-logo" onerror="this.src=''; this.alt='MG'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/globalsuzuki.com" alt="SUZUKI" class="brand-img-logo" onerror="this.src=''; this.alt='SUZUKI'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/jeep.com" alt="JEEP" class="brand-img-logo" onerror="this.src=''; this.alt='JEEP'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/skoda-auto.com" alt="ŠKODA" class="brand-img-logo" onerror="this.src=''; this.alt='ŠKODA'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/chevrolet.com" alt="CHEVROLET" class="brand-img-logo" onerror="this.src=''; this.alt='CHEVROLET'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/mitsubishicars.com" alt="MITSUBISHI" class="brand-img-logo" onerror="this.src=''; this.alt='MITSUBISHI'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/ford.com" alt="FORD" class="brand-img-logo" onerror="this.src=''; this.alt='FORD'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/lexus.com" alt="LEXUS" class="brand-img-logo" onerror="this.src=''; this.alt='LEXUS'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/renault.co.uk" alt="RENAULT" class="brand-img-logo" onerror="this.src=''; this.alt='RENAULT'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+                <div class="brand-item"><img src="https://logo.clearbit.com/jaguar.com" alt="JAGUAR" class="brand-img-logo" onerror="this.src=''; this.alt='JAGUAR'; this.style.fontSize='20px'; this.style.fontWeight='bold'; this.style.color='var(--chrome)';"></div>
+            </div>
+        </div>
+    </section>
 
     <!-- About the Founder -->
     <section class="section" style="background: #050505; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
@@ -1364,6 +1411,13 @@
                 );
             });
         }
+        // Duplicate marquee logos for seamless infinite scroll
+        const brandsMarquee = document.getElementById('brands-marquee');
+        if (brandsMarquee) {
+            const logos = brandsMarquee.innerHTML;
+            brandsMarquee.innerHTML = logos + logos;
+        }
+
         // Duplicate testimonial slides for seamless infinite scroll
         const testiSlider = document.getElementById('testiSlider');
         if (testiSlider) {
