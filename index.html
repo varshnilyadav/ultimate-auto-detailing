@@ -87,30 +87,15 @@
             justify-content: center;
         }
         
-        .shield-logo {
-            width: 120px;
-            height: 140px;
+        .preloader-logo {
             position: relative;
             opacity: 0;
+            transform: scale(0.8);
         }
 
-        .shield-svg {
-            width: 100%;
-            height: 100%;
-            fill: none;
-            stroke: var(--gold);
-            stroke-width: 2;
-        }
-
-        .shield-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: var(--font-display);
-            font-size: 32px;
-            color: var(--gold);
-            font-weight: 700;
+        .preloader-img {
+            width: 180px;
+            height: auto;
         }
 
         /* Navigation */
@@ -715,11 +700,8 @@
 
     <!-- Preloader -->
     <div id="preloader">
-        <div class="shield-logo">
-            <svg class="shield-svg" viewBox="0 0 100 120">
-                <path d="M50 5 L90 25 L90 70 C90 95 50 115 50 115 C50 115 10 95 10 70 L10 25 Z" />
-            </svg>
-            <div class="shield-text">UAD</div>
+        <div class="preloader-logo">
+            <img src="images/logo.png" alt="UAD Logo" class="preloader-img">
         </div>
     </div>
 

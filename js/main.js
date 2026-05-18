@@ -15,10 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            tl.to('.shield-logo', { opacity: 1, duration: 0.5 })
-              .to('.shield-svg', { strokeDasharray: 300, strokeDashoffset: 0, duration: 1, ease: 'power2.inOut' })
-              .to('.shield-text', { opacity: 1, duration: 0.5 }, '-=0.5')
-              .to('.shield-logo', { scale: 1.2, duration: 0.5, ease: 'power1.inOut' })
+            tl.to('.preloader-logo', { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' })
+              .to('.preloader-logo', { scale: 1.1, duration: 0.8, ease: 'power1.inOut', yoyo: true, repeat: 1 })
               .to(preloader, { opacity: 0, duration: 0.5 });
         } else {
             preloader.style.display = 'none';
