@@ -331,8 +331,20 @@ a {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('../images/hero-bg.png') no-repeat center center/cover;
     padding: 0 5%;
+    clip-path: inset(0 0 0 0); /* Critical for mobile fixed background */
+}
+
+.hero-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('../images/hero-bg.png') no-repeat center center/cover;
+    z-index: -2;
+    transform: translateZ(0); /* Hardware acceleration */
+    will-change: transform;
 }
 
 .hero-card {

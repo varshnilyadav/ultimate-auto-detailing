@@ -265,8 +265,21 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('images/hero-car.png') no-repeat center center/cover;
             padding: 100px 5% 0 5%;
+            clip-path: inset(0 0 0 0); /* Critical for mobile fixed background */
+        }
+
+        .hero-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('images/hero-car.png') no-repeat center center/cover;
+            z-index: -2;
+            transform: translateZ(0); /* Hardware acceleration */
+            will-change: transform;
         }
 
         .hero-card {
@@ -884,6 +897,7 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="hero-card glass-card gs-reveal" style="padding-bottom: 1.5rem;">
             <h1 class="hero-title">EXCELLENCE IN EVERY DETAIL</h1>
             <p class="hero-subtitle">Hyderabad's Premier Auto Detailing Studio Since 2015</p>
