@@ -87,6 +87,59 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statsSection) {
         statsObserver.observe(statsSection);
     }
+
+    // 5. Custom Cursor (if on desktop)
+    if (window.matchMedia("(pointer: fine)").matches) {
+        const cursorDot = document.createElement('div');
+        cursorDot.classList.add('cursor-dot');
+        const cursorRing = document.createElement('div');
+        cursorRing.classList.add('cursor-ring');
+        document.body.appendChild(cursorDot);
+        document.body.appendChild(cursorRing);
+
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Dot follows instantly
+            if(typeof gsap !== 'undefined') {
+                gsap.set(cursorDot, { x: mouseX, y: mouseY, xPercent: -50, yPercent: -50 });
+            } else {
+                cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+            }
+        });
+
+        if(typeof gsap !== 'undefined') {
+            gsap.ticker.add(() => {
+                ringX += (mouseX - ringX) * 0.15;
+                ringY += (mouseY - ringY) * 0.15;
+                gsap.set(cursorRing, { x: ringX, y: ringY, xPercent: -50, yPercent: -50 });
+            });
+        } else {
+            // Fallback if GSAP is not loaded (though it should be)
+            window.addEventListener('mousemove', (e) => {
+                setTimeout(() => {
+                    cursorRing.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+                }, 50);
+            });
+        }
+
+        // Add hover effect for interactive elements
+        const interactives = document.querySelectorAll('a, button, .btn, .service-card, input, textarea, select, .brand-img-logo, .gallery-item, .info-card');
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorDot.classList.add('hovered');
+                cursorRing.classList.add('hovered');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorDot.classList.remove('hovered');
+                cursorRing.classList.remove('hovered');
+            });
+        });
+    }
 });
 
 // GSAP Scroll Animations

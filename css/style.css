@@ -608,3 +608,45 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 @media (prefers-reduced-motion: reduce) {
     * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Custom Cursor */
+@media (pointer: fine) {
+    body, a, button, .btn, .service-card, input, textarea, select, .brand-img-logo, .gallery-item, .info-card {
+        cursor: none !important;
+    }
+
+    .cursor-dot {
+        position: fixed;
+        top: 0; left: 0;
+        width: 8px; height: 8px;
+        background: var(--gold);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .cursor-ring {
+        position: fixed;
+        top: 0; left: 0;
+        width: 40px; height: 40px;
+        border: 1px solid rgba(212, 175, 55, 0.5); /* translucent gold */
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
+    }
+
+    /* Hover States */
+    .cursor-dot.hovered {
+        opacity: 0;
+        transform: scale(0.1) !important;
+    }
+
+    .cursor-ring.hovered {
+        width: 60px;
+        height: 60px;
+        background: rgba(212, 175, 55, 0.1);
+        border-color: rgba(212, 175, 55, 0.8);
+    }
+}
