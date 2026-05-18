@@ -130,27 +130,18 @@
         }
 
         .nav-logo {
-            font-family: var(--font-display);
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
-        .nav-logo::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
-            transition: left 0.5s ease;
+        .nav-logo-img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
         }
 
-        .nav-logo:hover::after {
-            left: 100%;
+        .nav-logo-img:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -270,7 +261,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: radial-gradient(circle at center, #1a1a1a 0%, var(--black) 100%);
+            background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.8)), url('images/hero-bg.png') no-repeat center center/cover;
             padding: 0 5%;
         }
 
@@ -734,7 +725,7 @@
 
     <!-- Navigation -->
     <nav class="navbar">
-        <a href="index.html" class="nav-logo">UAD</a>
+        <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="UAD Logo" class="nav-logo-img"></a>
         <div class="nav-links">
             <a href="index.html" class="nav-link active">Home</a>
             <a href="about.html" class="nav-link">About</a>
