@@ -383,7 +383,9 @@ a {
 /* Services Preview / Cards */
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .service-card {
-    background: #050505;
+    background: rgba(5, 5, 5, 0.5); /* Changed to translucent for parallax */
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
     border-top: 3px solid var(--gold);
     padding: 3rem 2rem;
     border-radius: 8px;
