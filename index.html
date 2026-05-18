@@ -855,10 +855,10 @@
         .brands-marquee-wrapper::after { right: 0; background: linear-gradient(to left, var(--black) 0%, transparent 100%); }
         .brands-marquee { display: inline-flex; align-items: center; gap: 4rem; animation: scrollMarquee 35s linear infinite; width: max-content; padding: 0 2rem; }
         .brands-marquee:hover { animation-play-state: paused; }
-        .brand-item { display: flex; align-items: center; justify-content: center; opacity: 0.5; transition: opacity 0.3s; }
+        .brand-item { display: flex; align-items: center; justify-content: center; opacity: 0.8; transition: opacity 0.3s; }
         .brand-item:hover { opacity: 1; }
-        .brand-img-logo { height: 40px; width: auto; object-fit: contain; filter: grayscale(1) brightness(200%); transition: all 0.4s ease; cursor: pointer; }
-        .brand-img-logo:hover { filter: grayscale(0) brightness(100%); transform: scale(1.15); }
+        .brand-img-logo { height: 40px; width: auto; object-fit: contain; transition: all 0.4s ease; cursor: pointer; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)); }
+        .brand-img-logo:hover { transform: scale(1.15); filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.4)); }
         @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         @media (max-width: 768px) { .brands-marquee-wrapper::before, .brands-marquee-wrapper::after { width: 50px; } .brand-img-logo { height: 30px; } }
 
