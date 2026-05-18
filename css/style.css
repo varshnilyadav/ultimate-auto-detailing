@@ -611,7 +611,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 /* Custom Cursor */
 @media (pointer: fine) {
-    body, a, button, .btn, .service-card, input, textarea, select, .brand-img-logo, .gallery-item, .info-card {
+    * {
         cursor: none !important;
     }
 
