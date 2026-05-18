@@ -148,8 +148,30 @@ function initScrollAnimations() {
     
     gsap.registerPlugin(ScrollTrigger);
 
-    const reveals = document.querySelectorAll('.gs-reveal');
+    const revealSelectors = [
+        '.gs-reveal',
+        '.section-title',
+        '.why-card',
+        '.service-card',
+        '.pricing-card',
+        '.gallery-item',
+        '.testi-card',
+        '.team-card',
+        '.info-card',
+        '.contact-form',
+        '.footer-grid > div',
+        '.ba-container',
+        '.parallax-content',
+        '.stats-grid > div'
+    ];
+    
+    // Select all elements matching the selectors, avoiding duplicates
+    const reveals = document.querySelectorAll(revealSelectors.join(', '));
+    
     reveals.forEach((elem) => {
+        // Skip elements that are inside the hero section so they don't fade-in awkwardly on load
+        if(elem.closest('.hero')) return;
+
         gsap.fromTo(elem, 
             { y: 50, opacity: 0 },
             { 
