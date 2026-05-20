@@ -656,3 +656,9 @@ textarea.form-control { resize: vertical; min-height: 120px; }
         border-color: rgba(212, 175, 55, 0.8);
     }
 }
+
+/* Under Development Lock Screen FOUC Prevention */
+html:not(.uad-unlocked-html) body.uad-locked > :not(#uad-lock-screen) {
+    display: none !important;
+}
+

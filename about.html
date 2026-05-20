@@ -38,8 +38,14 @@
       "sameAs": ["https://www.instagram.com/uad_hyd/"]
     }
     </script>
+    <script>
+        if (sessionStorage.getItem('uad_site_unlocked') === 'true') {
+            document.documentElement.classList.add('uad-unlocked-html');
+        }
+    </script>
 </head>
-<body>
+<body class="uad-locked">
+    <script src="js/lock.js"></script>
 
     <!-- Navigation -->
     <nav class="navbar">

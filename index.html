@@ -919,10 +919,21 @@
                 border-color: rgba(212, 175, 55, 0.8);
             }
         }
+
+        /* Under Development Lock Screen FOUC Prevention */
+        html:not(.uad-unlocked-html) body.uad-locked > :not(#uad-lock-screen) {
+            display: none !important;
+        }
     </style>
+    <script>
+        if (sessionStorage.getItem('uad_site_unlocked') === 'true') {
+            document.documentElement.classList.add('uad-unlocked-html');
+        }
+    </script>
 </head>
 
-<body>
+<body class="uad-locked">
+    <script src="js/lock.js"></script>
 
     <!-- Preloader -->
     <div id="preloader">

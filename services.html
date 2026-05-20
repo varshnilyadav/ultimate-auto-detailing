@@ -37,9 +37,14 @@
       "openingHours": ["Mo-Sa 09:00-19:00", "Su 10:00-16:00"],
       "sameAs": ["https://www.instagram.com/uad_hyd/"]
     }
+    <script>
+        if (sessionStorage.getItem('uad_site_unlocked') === 'true') {
+            document.documentElement.classList.add('uad-unlocked-html');
+        }
     </script>
 </head>
-<body>
+<body class="uad-locked">
+    <script src="js/lock.js"></script>
 
     <!-- Navigation -->
     <nav class="navbar">
